@@ -1,8 +1,7 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    static void main() {
 
         List<Integer> notes = List.of(10, 55, 23, 67, 89, 34, 54, 90);
         GradeBook gradeBook = new GradeBook(notes);
@@ -22,6 +21,12 @@ public class Main {
         List<Note> roundedGrades = NoteService.roundGrades(gradeBook.getGradeBook());
         System.out.print("Rounded Grades: ");
         NoteService.printNotes(roundedGrades);
+
+        System.out.println();
+
+        //4
+        Note highestNote = NoteService.getHighestNote(gradeBook.getGradeBook());
+        System.out.println("Highest Note: " + highestNote.getNote());
     }
 
 }

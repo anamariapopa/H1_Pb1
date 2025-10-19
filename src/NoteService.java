@@ -67,4 +67,15 @@ public class NoteService {
        return notes;
     }
     */
+
+    //4
+    public static Note getHighestNote(List<Note> notes) {
+        List<Note> roundedGrades = roundGrades(notes);
+        Note maxim = new Note(0);
+        for (Note note : roundedGrades) {
+            if (note.getNote() > maxim.getNote())
+                maxim = note;
+        }
+        return maxim;
+    }
 }
