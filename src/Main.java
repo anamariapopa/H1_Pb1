@@ -4,19 +4,24 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<Note> notes = new ArrayList<>();
-        notes.add(new Note(50));
-        notes.add(new Note(40));
-        notes.add(new Note(30));
-        notes.add(new Note(80));
-        notes.add(new Note(90));
-        notes.add(new Note(10));
+        List<Integer> notes = List.of(10, 55, 23, 67, 89, 34, 54, 90);
+        GradeBook gradeBook = new GradeBook(notes);
 
-        List<Note> insufficientNotes = NoteService.getInsuficientNotes(notes);
-        for (Note note : insufficientNotes) {
-            System.out.print(note.getNote());
-            System.out.print(" ");
-        }
+        //1
+        List<Note> insuficientNotes = NoteService.getInsuficientNotes(gradeBook.getGradeBook());
+        System.out.print("Insuficient Notes: ");
+        NoteService.printNotes(insuficientNotes);
+
+        System.out.println();
+
+        //2
+        double average = NoteService.getAverage(gradeBook.getGradeBook());
+        System.out.println("Average: " + average);
+
+        //3
+        List<Note> roundedGrades = NoteService.roundGrades(gradeBook.getGradeBook());
+        System.out.print("Rounded Grades: ");
+        NoteService.printNotes(roundedGrades);
     }
 
 }
